@@ -6,7 +6,7 @@
   "license": "ISC",
   "keywords": [],
   "engines": {
-    "node": ">=14"
+    "node": "20.x"
   },
   "main": "app.js",
   "scripts": {
