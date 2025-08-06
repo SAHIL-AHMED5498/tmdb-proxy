@@ -90,7 +90,7 @@ app.post("/api/ai", auth, async (req, res) => {
 
   } catch (err) {
     console.error(err);
-    res.status(400).send("Failed to access: " + err.message);
+    res.status(400).send(`Failed to access:${err?.message||"unknown error"}`);
   }
 });
 
