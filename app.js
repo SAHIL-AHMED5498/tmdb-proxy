@@ -12,6 +12,11 @@ const TMDB_BEARER_TOKEN = process.env.TMDB_BEARER_TOKEN;
 app.use(helmet());
 app.use(morgan('dev'));
 
+app.get("/ping",(req,res)=>{
+  res.send("OK")
+
+});
+
 app.use('/', createProxyMiddleware({
   target: 'https://api.themoviedb.org',
   changeOrigin: true,
