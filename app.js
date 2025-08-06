@@ -32,7 +32,7 @@ const auth=(req,res,next)=>{
 
 }catch(err){
   console.log(err);
-  res.status(400).send("Failed to access"+err.message);
+  res.status(400).send(`Failed to access ${err.message}`);
 
 }
 
@@ -50,7 +50,7 @@ app.use(morgan('dev'));
 
 
 //TO PREVENT SERVER FROM GETTING COLD
-app.get("/ping",(res)=>{
+app.get("/ping",(req,res)=>{
   res.send("OK")
 
 });
