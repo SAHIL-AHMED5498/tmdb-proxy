@@ -42,7 +42,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: "http://localhost:3000", // allow your React frontend
+  origin: `https://flix-gpt-f48c8.web.app/`, // allow your React frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
