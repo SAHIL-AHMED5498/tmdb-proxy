@@ -69,7 +69,7 @@ app.post("/api/ai", auth, async (req, res) => {
       throw new Error("message is required");
     }
 
-    const query = `Act as a movie manager , send response just a javascript array of 5 movies and nothing else for example [m1,m2,m3,m4,m5] also make sure for any other query which is not related to asking for movie names just send a empty array . HERE IS THE QUERY : ${message}`;
+    const query = `Act as a movie manager , send response just a javascript array of 5 movies and nothing else for example [m1,m2,m3,m4,m5] also make sure for any other query which is not related to asking for movie names just send a empty array . HERE IS THE QUERY : ${message} movies`;
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
