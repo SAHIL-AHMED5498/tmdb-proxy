@@ -4,6 +4,7 @@ const TMDB_KEY = process.env.TMDB_API_KEY;
 const TMDB_BEARER_TOKEN = process.env.TMDB_BEARER_TOKEN;
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));  //node-fetch v3
+const {userAuth}=require("../middlewares/userAuth")
 
 
 const tmdbProxyRouter=express.Router();

@@ -38,13 +38,17 @@ authRouter.post("/auth/signUp",async(req,res)=>{
 
         const token=await User.getJWT();
 
-    //SAVE IT IN COOKIE
-        res.cookie("token", token, {
+        const isProd=process.env.NODE_ENV === "production";
+
+        //SAVE TO COOKIE
+     res.cookie("token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
+    secure:isProd ,
+   
+    sameSite:(isProd)?"none":"lax",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
+
 
 
         res.status(200).send(User)
@@ -81,11 +85,14 @@ authRouter.post("/auth/signIn",async(req,res)=>{
 
         const token= await User.getJWT()
 
+        const isProd=process.env.NODE_ENV === "production";
+
         //SAVE TO COOKIE
-          res.cookie("token", token, {
+     res.cookie("token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
+    secure:isProd ,
+   
+    sameSite:(isProd)?"none":"lax",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
@@ -102,7 +109,17 @@ authRouter.post("/auth/signIn",async(req,res)=>{
 authRouter.post("/auth/logout",(req,res)=>{
 
     try{
-    res.cookie("token","",{httpOnly:true,sameSite:"none"});
+      const isProd=process.env.NODE_ENV === "production";
+
+        //SAVE TO COOKIE
+     res.cookie("token", "", {
+    httpOnly: true,
+    secure:isProd ,
+   
+    sameSite:(isProd)?"none":"lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  });
+
     res.status(200).send("loggout out successfully")
     }
     catch(err){
