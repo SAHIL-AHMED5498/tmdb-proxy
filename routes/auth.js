@@ -70,7 +70,7 @@ authRouter.post("/auth/signIn",async(req,res)=>{
          
          if(!User){throw new Error("User doesnt exist")}
 
-         const isValidPass=bcrypt.compare(pass,User.password);
+         const isValidPass=await bcrypt.compare(pass,User.password);
 
          //VALIDATE PASSWORD
 
