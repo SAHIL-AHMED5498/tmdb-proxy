@@ -8,7 +8,7 @@ const userAuth=async(req,res,next)=>{
     const cookie=req?.cookies;
     const {token}=cookie;
     if(!token){
-        throw new Error("jwt token not found")
+        throw new Error("jwt token not found i guess")
     }
 
     const decodedObj=jwt.verify(token,"FlixGptSecret");
