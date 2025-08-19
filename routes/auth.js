@@ -41,7 +41,7 @@ authRouter.post("/auth/signUp",async(req,res)=>{
     //SAVE IT IN COOKIE
         res.cookie("token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    //secure: process.env.NODE_ENV === "production",
     // sameSite: "strict",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
@@ -84,7 +84,7 @@ authRouter.post("/auth/signIn",async(req,res)=>{
         //SAVE TO COOKIE
           res.cookie("token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    //secure: process.env.NODE_ENV === "production",
     // sameSite: "strict",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
