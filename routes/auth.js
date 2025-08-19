@@ -42,7 +42,7 @@ authRouter.post("/auth/signUp",async(req,res)=>{
         res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
@@ -85,7 +85,7 @@ authRouter.post("/auth/signIn",async(req,res)=>{
           res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
@@ -102,7 +102,7 @@ authRouter.post("/auth/signIn",async(req,res)=>{
 authRouter.post("/auth/logout",(req,res)=>{
 
     try{
-    res.cookie("token","",{httpOnly:true});
+    res.cookie("token","",{httpOnly:true,sameSite:"none"});
     res.status(200).send("loggout out successfully")
     }
     catch(err){
