@@ -13,7 +13,7 @@ const GROQ_API_KEY=process.env.GROQ_AI_API_KEY;
 
 
 //TO SEND REQUEST TO Groq AI API
-aiSearchRouter.post("/api/ai",async (req, res) => {
+aiSearchRouter.post("/api/ai",auth,async (req, res) => {
   try {
     const { message } = req.body;
 

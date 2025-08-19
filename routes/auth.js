@@ -102,7 +102,7 @@ authRouter.post("/auth/signIn",async(req,res)=>{
 authRouter.post("/auth/logout",(req,res)=>{
 
     try{
-    res.cookie("token","");
+    res.cookie("token","",{httpOnly:true});
     res.status(200).send("loggout out successfully")
     }
     catch(err){
