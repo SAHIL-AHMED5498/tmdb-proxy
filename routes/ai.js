@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express=require("express");
-const {auth}=require("../middlewares/auth")
+const {auth}=require("../middlewares/auth");
+const { userAuth } = require('../middlewares/userAuth');
 const aiSearchRouter=express.Router();
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));  //node-fetch v3
 
@@ -12,7 +13,7 @@ const GROQ_API_KEY=process.env.GROQ_AI_API_KEY;
 
 
 //TO SEND REQUEST TO Groq AI API
-aiSearchRouter.post("/api/ai", auth, async (req, res) => {
+aiSearchRouter.post("/api/ai", userAuth, async (req, res) => {
   try {
     const { message } = req.body;
 
