@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 8000;
 
 
 
-
+//`https://flix-gpt-f48c8.web.app`
 
 app.use(express.json());
 app.use(cookieParser());
@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: `https://flix-gpt-f48c8.web.app`, // allow your React frontend
+  origin: "http://localhost:3000", // allow your React frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
