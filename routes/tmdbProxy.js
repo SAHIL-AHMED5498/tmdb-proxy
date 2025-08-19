@@ -11,7 +11,7 @@ const tmdbProxyRouter=express.Router();
 
 
 //TO SEND PROXY REQUEST TO TMDB SERVER
-tmdbProxyRouter.use('/',userAuth, createProxyMiddleware({
+tmdbProxyRouter.use('/', createProxyMiddleware({
   target: 'https://api.themoviedb.org',
   changeOrigin: true,
   onProxyReq: (proxyReq, req, res) => {
