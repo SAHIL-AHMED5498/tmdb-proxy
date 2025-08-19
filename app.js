@@ -32,7 +32,10 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors({
-  origin:`https://flix-gpt-f48c8.web.app`, // allow your React frontend
+   origin: [
+    "https://flix-gpt-f48c8.web.app",
+    "https://flix-gpt-f48c8.firebaseapp.com"
+  ], // allow your React frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
