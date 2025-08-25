@@ -34,7 +34,8 @@ app.use(morgan('dev'));
 app.use(cors({
    origin: [
     "https://flix-gpt-f48c8.web.app",
-    "https://flix-gpt-f48c8.firebaseapp.com"
+    "https://flix-gpt-f48c8.firebaseapp.com",
+    "http://localhost:3000"
   ], // allow your React frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
